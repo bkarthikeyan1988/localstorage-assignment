@@ -1,0 +1,29 @@
+    *{padding: 0;margin: 0; outline:none;}
+    ul{padding: 0;margin: 0;}
+    li{padding: 0;margin: 0;list-style: none;}
+    body{font:normal 14px tahoma;}
+/* Common CSS Ends */
+    .ele-table{display: table; width: 100%; table-layout: fixed;}
+    .ele-row{display: table-row;}
+    .ele-cell{display: table-cell;padding: 10px 15px;}
+    .clearBlock{overflow: hidden;display: block;}
+    /* Custom Checkbox */
+        [type="checkbox"]:not(:checked),[type="checkbox"]:checked{position:absolute;left:-9999px;display:none}
+        [type="checkbox"]:not(:checked) + label,[type="checkbox"]:checked + label{position:relative;padding:0 10px 0 25px;cursor:pointer;font-size:0.938em; min-height: 15px; margin: 0;}
+        [type="checkbox"]:not(:checked) + label:before,[type="checkbox"]:checked + label:before{content:'';position:absolute;left:0;top:0;width:15px;height:15px;border:1px solid #5a5a5a;background:transparent;border-radius:0; background: #fff;}
+        [type="checkbox"]:not(:checked) + label:after,[type="checkbox"]:checked + label:after{content:"\f00c";display: inline-block;font: normal normal normal 14px/1 FontAwesome;font-size: inherit;text-rendering: auto;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale; color: #234465; position: absolute;top:2px; left: 2px;}
+        [type="checkbox"]:not(:checked) + label:after{opacity:0;transform:scale(0)}
+        [type="checkbox"]:checked + label:after{opacity:1;transform:scale(1)}
+    /* Custom Checkbox Ends */
+    fieldset{border: 0;}
+/* Table CSS Ends */
+    main{background: #fff; width: 600px; min-height: 300px; padding: 20px; margin: 30px auto; position: relative;box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;}
+    main:before, main:after{content:"";position:absolute; z-index:-1;box-shadow:0 0 20px rgba(0,0,0,0.8);top:0;bottom:0;left:10px;right:10px;border-radius:100px / 10px;} 
+    main:after{right:10px; left:auto; transform:skew(8deg) rotate(3deg);}
+    main h2.title,.sign-up h2.title,.sign-in h2.title, .main .title{font:bold 20px tahoma; color: #234465; margin-bottom: 20px;}
+
+    .local-storage-block{height: 300px; border:2px solid #333; border-radius: 5px;}
+    .local-storage-block .ele-cell{vertical-align: middle; height: 100%; text-align: center; border-right: 2px solid #333;}
+    .local-storage-block .ele-cell:last-child{border-right: 0;}
+    .local-storage-block .main-link{border:2px solid #333; border-radius: 3px; padding: 10px 15px; background: #0099cc; color: #fff; text-decoration: none; font-weight: bold;}
+
