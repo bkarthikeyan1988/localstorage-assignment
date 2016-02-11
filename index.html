@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Local Storage</title>
+	<link rel="stylesheet" href="css/styles.css">
+
+	<style type="text/css">
+		.formBlock{
+			display: none;
+			margin: 25px 0;
+		}
+		button{
+			background: #333;border:1px solid #333;color: #fff; padding: 5px 15px; cursor:pointer;
+		}
+		.formBlock ul{margin-left: 0;}
+		.formBlock li{margin-bottom: 10px;}
+		.formBlock li input{padding: 5px;}
+	</style>
+</head>
+<body>
+	<main>
+		<h2 class="title">Local Storage Demo</h2>
+		<!-- <section class="ele-table local-storage-block">
+			<article class="ele-cell"><a class="main-link" href="sign-up.html">Sign Up</a></article>
+			<article class="ele-cell"><a class="main-link" href="sign-in.html">Sign In</a></article>
+		</section> -->
+		<button id="signup">signup</button>
+		<button id="login">Login</button>
+		<div id="signupform" class="formBlock">
+			<form>
+				<ul>
+					<li><input id="userName" placeholder="User Name" type="text"></li>
+					<li><input id="email" placeholder="Email" type="email"></li>
+					<li><input id="password" placeholder="Password" type="password"></li>
+					<li><button id="save">SignUp</button></li>
+				</ul>
+			</form>
+		</div>
+		<div id="userloginform" class="formBlock">
+			<form>
+				<ul>
+					<li><input id="useremail" placeholder="Email" type="email"></li>
+					<li><input id="userpassword" placeholder="Password" type="password"></li>
+					<li><button id="userlogin">Login</button></li>
+				</ul>
+			</form>
+		</div>
+		<p id="userDetails"></p>
+	</main>
+	<script type="text/javascript">
+		var login = document.querySelector('#login'),
+		    signup = document.querySelector('#signup'),
+		    signupform = document.querySelector('#signupform'),
+		    userloginform = document.querySelector('#userloginform'),
+		    saveUser = document.querySelector('#save'),
+		    loginButton = document.querySelector('#userlogin');
+
+		signup.addEventListener('click',function(){ 
+		    signupform.style.display='block';
+		    userloginform.style.display='none';   
+		});
+
+		login.addEventListener('click',function(){
+		    userloginform.style.display='block';
+		     signupform.style.display='none';
+		});
+
+		saveUser.addEventListener('click',function(){
+		    var un = document.querySelector("#userName").value;
+		    var em = document.querySelector("#email").value;
+		    var pd = document.querySelector("#password").value;
+		    if(un && em && pd){
+		        localStorage.setItem(em,un);
+		        localStorage.setItem(pd,em);
+		    }   
+		    signupform.style.display='none';
+		});
+
+		loginButton.addEventListener('click',function(){
+		    var uem = document.querySelector("#useremail").value;
+		    var upd = document.querySelector("#userpassword").value;
+		    var userLogged ='';
+		    for(var temp in localStorage){ 
+		        if(upd==temp && uem==localStorage[temp]){
+		           for(var temp2 in localStorage){
+		               if(uem==temp2){
+		                   userLogged=localStorage[temp2];
+		               }
+		           } 
+		        }
+		    }
+		    if(userLogged!=''){
+		        alert ("User Name: " + userLogged + "\n\nEmail: " + uem);
+		    }else{
+		        alert("Invalid User!");
+		    }
+		    userloginform.style.display='none';
+		});
+
+
+	</script>
+</body>
+</html>
